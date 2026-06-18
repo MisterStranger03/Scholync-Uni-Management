@@ -1,0 +1,357 @@
+/* src/styles.css */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* ══════════════════════════════════════
+   CSS VARIABLES
+══════════════════════════════════════ */
+:root {
+  --bg:            #0a0a0f;
+  --surface:       rgba(255,255,255,0.06);
+  --surface-hover: rgba(255,255,255,0.10);
+  --border:        rgba(255,255,255,0.10);
+  --border-hover:  rgba(255,255,255,0.22);
+
+  --blue:    #2563eb;
+  --amber:   #f59e0b;
+  --cyan:    #06b6d4;
+  --green:   #10b981;
+  --red:     #ef4444;
+
+  --grad-accent:   linear-gradient(135deg, #2563eb, #f59e0b);
+  --grad-cyan:     linear-gradient(135deg, #06b6d4, #2563eb);
+  --grad-green:    linear-gradient(135deg, #10b981, #06b6d4);
+
+  --text:          #f8fafc;
+  --text-muted:    rgba(255,255,255,0.60);
+  --text-dim:      rgba(255,255,255,0.35);
+
+  --radius-sm:  10px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-xl:  32px;
+
+  --glass-bg:      rgba(255,255,255,0.06);
+  --glass-border:  rgba(255,255,255,0.10);
+  --glass-shadow:  inset 0 1px 0 rgba(255,255,255,0.15), 0 8px 32px rgba(0,0,0,0.35);
+  --glass-blur:    blur(24px) saturate(180%);
+}
+
+/* ══════════════════════════════════════
+   LIGHT MODE OVERRIDES
+   Applied when .light-mode class is on <body>
+══════════════════════════════════════ */
+.light-mode {
+  --bg:            #eef2ff;
+  --surface:       rgba(255,255,255,0.75);
+  --surface-hover: rgba(255,255,255,0.92);
+  --border:        rgba(37,99,235,0.14);
+  --border-hover:  rgba(37,99,235,0.30);
+  --text:          #0f172a;
+  --text-muted:    rgba(15,23,42,0.60);
+  --text-dim:      rgba(15,23,42,0.38);
+  --glass-bg:      rgba(255,255,255,0.70);
+  --glass-border:  rgba(37,99,235,0.18);
+  --glass-shadow:  inset 0 1px 0 rgba(255,255,255,0.95), 0 8px 32px rgba(37,99,235,0.10);
+}
+
+/* Light mode background overrides for hardcoded values in components */
+.light-mode .auth-bg,
+.light-mode .landing-page,
+.light-mode .profile-page { background: #eef2ff !important; }
+
+.light-mode .auth-card {
+  background: rgba(255,255,255,0.75) !important;
+  border-color: rgba(37,99,235,0.15) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.95), 0 24px 64px rgba(37,99,235,0.12), 0 0 0 0.5px rgba(37,99,235,0.08) !important;
+}
+
+.light-mode .brand-title { color: #0f172a !important; }
+.light-mode .brand-subtitle { color: rgba(15,23,42,0.55) !important; }
+
+.light-mode .submit-btn { box-shadow: 0 4px 20px rgba(37,99,235,0.35) !important; }
+
+.light-mode .auth-footer { color: rgba(15,23,42,0.50) !important; }
+.light-mode .auth-footer a { color: #2563eb !important; }
+.light-mode .auth-footer a:hover { color: #f59e0b !important; }
+
+/* Dashboard light mode */
+.light-mode .welcome-text h2,
+.light-mode .page-title { color: #0f172a !important; }
+.light-mode .welcome-text p,
+.light-mode .page-subtitle,
+.light-mode .course-description { color: rgba(15,23,42,0.60) !important; }
+
+.light-mode .course-card,
+.light-mode .stat-card,
+.light-mode .user-row,
+.light-mode .post-card,
+.light-mode .assignment-row,
+.light-mode .submission-row,
+.light-mode .form-card {
+  background: rgba(255,255,255,0.70) !important;
+  border-color: rgba(37,99,235,0.12) !important;
+}
+.light-mode .course-card:hover { border-color: rgba(37,99,235,0.30) !important; }
+
+.light-mode .course-card-name,
+.light-mode .user-info strong,
+.light-mode .post-title,
+.light-mode .assignment-info strong,
+.light-mode .section-head h3,
+.light-mode .stat-value { color: #0f172a !important; }
+
+.light-mode .course-card-desc,
+.light-mode .user-info span,
+.light-mode .post-content,
+.light-mode .assignment-desc,
+.light-mode .stat-label { color: rgba(15,23,42,0.55) !important; }
+
+.light-mode .tab-bar {
+  background: rgba(255,255,255,0.70) !important;
+  border-color: rgba(37,99,235,0.12) !important;
+}
+.light-mode .tab-btn { color: rgba(15,23,42,0.50) !important; }
+.light-mode .tab-btn.active { color: #1e3a8a !important; }
+
+.light-mode .search-bar {
+  background: rgba(255,255,255,0.70) !important;
+  border-color: rgba(37,99,235,0.15) !important;
+}
+.light-mode .search-bar input { color: #0f172a !important; }
+.light-mode .search-bar input::placeholder { color: rgba(15,23,42,0.35) !important; }
+
+.light-mode .empty-state { border-color: rgba(37,99,235,0.15) !important; }
+.light-mode .empty-state p { color: rgba(15,23,42,0.55) !important; }
+
+.light-mode .badge { background: rgba(37,99,235,0.10) !important; color: #1e40af !important; }
+
+/* Profile light mode */
+.light-mode .profile-toolbar {
+  background: rgba(238,242,255,0.88) !important;
+  border-bottom-color: rgba(37,99,235,0.12) !important;
+}
+.light-mode .profile-toolbar span { color: #0f172a !important; }
+.light-mode .profile-name { color: #0f172a !important; }
+.light-mode .info-card {
+  background: rgba(255,255,255,0.75) !important;
+  border-color: rgba(37,99,235,0.12) !important;
+}
+.light-mode .info-card .mat-mdc-card-header .mat-mdc-card-title { color: #0f172a !important; }
+.light-mode .value { color: #0f172a !important; }
+.light-mode .label { color: rgba(15,23,42,0.45) !important; }
+
+/* Material overrides for light mode */
+.light-mode .mat-mdc-form-field .mdc-notched-outline__leading,
+.light-mode .mat-mdc-form-field .mdc-notched-outline__notch,
+.light-mode .mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(37,99,235,0.25) !important;
+}
+.light-mode .mat-mdc-input-element { color: #0f172a !important; }
+.light-mode .mat-mdc-select-value { color: #0f172a !important; }
+.light-mode .mat-mdc-floating-label,
+.light-mode .mat-mdc-form-field-label { color: rgba(15,23,42,0.55) !important; }
+.light-mode .mat-mdc-select-panel {
+  background: rgba(255,255,255,0.97) !important;
+  border-color: rgba(37,99,235,0.15) !important;
+}
+.light-mode .mat-mdc-option { color: #0f172a !important; }
+.light-mode .mat-mdc-option:hover { background: rgba(37,99,235,0.08) !important; }
+.light-mode .mat-mdc-icon-button { color: rgba(15,23,42,0.55) !important; }
+.light-mode .mat-mdc-icon-button:hover { color: #0f172a !important; background: rgba(37,99,235,0.08) !important; }
+
+/* ══════════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════════ */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes fadeSlideUp {
+  from { opacity:0; transform: translateY(28px) scale(.97); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+
+/* ══════════════════════════════════════
+   RESET / BASE
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  transition: background .3s, color .3s;
+}
+
+::selection { background: rgba(37,99,235,0.35); color: #f8fafc; }
+
+/* ══════════════════════════════════════
+   SCROLLBAR
+══════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(37,99,235,0.30);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(37,99,235,0.50); }
+
+/* ══════════════════════════════════════
+   ORB BASE (landing page background orbs)
+══════════════════════════════════════ */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ══════════════════════════════════════
+   GLASS CARD BASE
+══════════════════════════════════════ */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ══════════════════════════════════════
+   GRADIENT BUTTON BASE
+══════════════════════════════════════ */
+.gradient-btn {
+  background: var(--grad-accent);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s cubic-bezier(0.34,1.56,0.64,1), box-shadow .2s;
+}
+.gradient-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(37,99,235,0.45);
+}
+.gradient-btn:active:not(:disabled) { transform: scale(0.97); }
+.gradient-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* ══════════════════════════════════════
+   SKELETON SHIMMER
+══════════════════════════════════════ */
+.skeleton {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(255,255,255,0.10) 50%,
+    rgba(255,255,255,0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ══════════════════════════════════════
+   ANGULAR MATERIAL — GLOBAL DARK OVERRIDES
+══════════════════════════════════════ */
+
+/* Outline field borders */
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-color: rgba(255,255,255,0.18) !important;
+  transition: border-color .2s !important;
+}
+.mat-mdc-form-field:hover .mdc-notched-outline__leading,
+.mat-mdc-form-field:hover .mdc-notched-outline__notch,
+.mat-mdc-form-field:hover .mdc-notched-outline__trailing {
+  border-color: rgba(255,255,255,0.35) !important;
+}
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: #2563eb !important;
+  border-width: 2px !important;
+}
+
+/* Input text & label */
+.mat-mdc-input-element               { color: #f8fafc !important; caret-color: #2563eb !important; }
+.mat-mdc-select-value                { color: #f8fafc !important; }
+.mat-mdc-floating-label,
+.mat-mdc-form-field-label            { color: rgba(255,255,255,0.50) !important; }
+.mat-mdc-form-field.mat-focused .mat-mdc-floating-label { color: #93c5fd !important; }
+
+/* Prefix icon colour */
+.mat-mdc-form-field .mat-icon        { color: rgba(255,255,255,0.40) !important; }
+
+/* Select dropdown */
+.mat-mdc-select-panel {
+  background: rgba(10,14,30,0.97) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 16px !important;
+}
+.mat-mdc-option                      { color: #f8fafc !important; }
+.mat-mdc-option:hover,
+.mat-mdc-option.mat-mdc-option-active { background: rgba(37,99,235,0.20) !important; }
+
+/* Date picker */
+.mat-datepicker-content {
+  background: rgba(10,14,30,0.97) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(20px) !important;
+}
+.mat-calendar-body-cell-content,
+.mat-calendar-body-label,
+.mat-calendar-arrow                  { color: #f8fafc !important; }
+.mat-calendar-body-selected          { background: #2563eb !important; }
+.mat-calendar-body-today             { border-color: #2563eb !important; }
+
+/* Spinner */
+::ng-deep .btn-spinner circle        { stroke: white !important; }
+
+/* Error text */
+.mat-mdc-form-field-error            { color: #f87171 !important; }
+
+/* mat-hint */
+.mat-mdc-form-field-hint             { color: rgba(255,255,255,0.45) !important; }
+
+/* Raised buttons */
+.mat-mdc-raised-button.mat-primary {
+  background: var(--grad-accent) !important;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35) !important;
+  border-radius: 10px !important;
+  transition: transform .2s, box-shadow .2s !important;
+}
+.mat-mdc-raised-button.mat-primary:hover:not(:disabled) {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(37,99,235,0.50) !important;
+}
+.mat-mdc-raised-button.mat-warn {
+  background: rgba(239,68,68,0.15) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239,68,68,0.35) !important;
+  box-shadow: none !important;
+  border-radius: 10px !important;
+}
+.mat-mdc-stroked-button {
+  border-color: var(--glass-border) !important;
+  color: var(--text-muted) !important;
+  border-radius: 10px !important;
+}
+.mat-mdc-stroked-button:hover { border-color: var(--border-hover) !important; color: var(--text) !important; }
+
+/* Icon buttons in dark context */
+.mat-mdc-icon-button { color: rgba(255,255,255,0.55) !important; transition: color .2s, background .2s !important; }
+.mat-mdc-icon-button:hover { color: white !important; background: rgba(255,255,255,0.08) !important; }
+
+/* ══════════════════════════════════════
+   UTILITY
+══════════════════════════════════════ */
+.full-width { width: 100%; }

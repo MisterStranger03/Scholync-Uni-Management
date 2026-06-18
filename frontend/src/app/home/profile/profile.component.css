@@ -1,0 +1,123 @@
+/* ── Page wrapper ── */
+.profile-page {
+  min-height: 100vh;
+  background: var(--bg, #0a0a0f);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Toolbar (glass) ── */
+.profile-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,0.78) !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.3);
+  color: #f8fafc !important;
+  gap: 8px;
+}
+.profile-toolbar span { color: #f8fafc; font-size: 16px; font-weight: 600; }
+
+/* ── Container ── */
+.profile-container {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Skeleton ── */
+.skeleton-wrap { text-align: center; }
+.avatar-skeleton {
+  width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 16px;
+}
+
+/* ── Hero ── */
+.profile-hero {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 36px; gap: 10px;
+}
+.avatar-circle {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #f59e0b);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.4rem; font-weight: 700;
+  box-shadow: 0 8px 32px rgba(37,99,235,0.45), inset 0 1px 0 rgba(255,255,255,0.20);
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.profile-name {
+  margin: 0; font-size: 1.8rem; font-weight: 700; color: #f8fafc; letter-spacing: -0.5px;
+}
+
+/* ── Chips ── */
+.chip {
+  display: inline-block; padding: 3px 12px; border-radius: 20px;
+  font-size: 0.78em; font-weight: 700; text-transform: capitalize; letter-spacing: 0.05em;
+}
+.chip-role     { background: rgba(37,99,235,0.25); color: #bfdbfe; }
+.chip-approved { background: rgba(16,185,129,0.20); color: #34d399; }
+.chip-pending  { background: rgba(245,158,11,0.20); color: #fbbf24; }
+.chip-rejected { background: rgba(239,68,68,0.20);  color: #f87171; }
+
+/* ── Banners ── */
+.banner {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px; border-radius: 12px; margin-bottom: 18px;
+  font-size: 0.9rem; font-weight: 500;
+}
+.success-banner { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.30); color: #34d399; }
+.error-banner   { background: rgba(239,68,68,0.12);  border: 1px solid rgba(239,68,68,0.30);  color: #f87171; }
+
+/* ── Info Card ── */
+.info-card {
+  background: rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.11) !important;
+  border-radius: 20px !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 8px 32px rgba(0,0,0,0.30) !important;
+  margin-bottom: 24px;
+  color: #f8fafc !important;
+}
+
+/* Override Material card defaults */
+.info-card .mat-mdc-card-header .mat-mdc-card-title { color: #f8fafc !important; font-size: 16px; font-weight: 600; }
+.info-card .mat-mdc-card-actions { padding: 8px 16px 20px; }
+
+/* ── Info rows ── */
+.info-row {
+  display: flex; align-items: center; gap: 16px; padding: 14px 0;
+}
+.info-row mat-icon { color: rgba(255,255,255,0.40) !important; }
+.info-row div { display: flex; flex-direction: column; gap: 2px; }
+.label {
+  font-size: 0.72rem; color: rgba(255,255,255,0.40);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.value { font-size: 0.95rem; color: #f8fafc; font-weight: 500; }
+
+/* Divider in dark */
+::ng-deep .info-card mat-divider { border-color: rgba(255,255,255,0.08) !important; }
+
+/* ── Read-only note ── */
+.read-only-note {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 4px 0 0;
+}
+.read-only-note mat-icon { font-size: 16px; width: 16px; height: 16px; color: rgba(255,255,255,0.35) !important; }
+
+/* ── Utility ── */
+.full-width { width: 100%; }
+::ng-deep .btn-spinner circle { stroke: white !important; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .profile-container { padding: 20px 16px 40px; }
+  .avatar-circle { width: 80px; height: 80px; font-size: 2rem; }
+  .profile-name { font-size: 1.5rem; }
+}
