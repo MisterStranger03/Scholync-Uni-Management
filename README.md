@@ -52,7 +52,7 @@ scholync-showcase/
 ```
 
 ---
-
+<!--
 ## API Overview
 
 | Method | Path | Access | Description |
@@ -76,7 +76,7 @@ scholync-showcase/
 | POST | `/api/attendance` | Admin/Professor | Mark attendance |
 | GET | `/api/attendance/my` | Student | My attendance summary |
 
----
+--- -->
 
 ## Environment Variables
 
